@@ -1,0 +1,30 @@
+##In python
+import pandas as pd  
+import numpy as np  
+import matplotlib.pyplot as plt  
+import seaborn as seabornInstance 
+from sklearn.model_selection import train_test_split 
+from sklearn.linear_model import LinearRegression
+from sklearn import metrics
+import statsmodels.api as sm
+%matplotlib inline
+plt.plot(x,y, 'ro')
+plt.axis([0, 27, 1500,2600])
+plt.show()
+y=np.array([2158.7,1678.15,2316,2061.3,2207.5,1708.3,1784.7,2575,2357.9,2256.7,2165.2,2399.55,1779.8,2336.75,1765.3,2053.5,2414.4,2200.5,2654.2,1753.7])
+x=np.array([15.5,23.75,8,17,5.5,19,24,2.5,7.5,11,13,3.75,25,9.75,22,18,6,12.5,2,21.5]).reshape((-1, 1))
+model = LinearRegression()
+model.fit(x, y)
+model = LinearRegression().fit(x, y)
+r_sq = model.score(x, y)
+print('coefficient of determination:', r_sq)
+print('intercept:', model.intercept_)
+print('slope:', model.coef_)
+model = sm.OLS(y, x).fit()
+model.summary()
+# #In R
+y<-c(2158.7,1678.15,2316,2061.3,2207.5,1708.3,1784.7,2575,2357.9,2256.7,2165.2,2399.55,1779.8,2336.75,1765.3,2053.5,2414.4,2200.5,2654.2,1753.7)
+x<-c(15.5,23.75,8,17,5.5,19,24,2.5,7.5,11,13,3.75,25,9.75,22,18,6,12.5,2,21.5)
+model=lm(y~x)
+summary(model)
+plot(x,y)
